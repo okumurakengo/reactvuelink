@@ -1,0 +1,15 @@
+[
+    {
+        "no":101,
+        "type":"vue",
+        "name":"Vue.js News",
+        "url":"https://news.vuejs.org/",
+        "rss":"https://vuenews.fireside.fm/rss"
+    },
+    {
+        "no":102,
+        "type":"react",
+        "name":"reactjs.org",
+        "url":"https://reactjs.org/blog/"
+    }
+]

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>linksyu</title>
+    <base target="_brank">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+    <style>
+    body {
+        min-width:500px;
+    }
+    a{
+        text-decoration: none;
+        color: #555;
+    }
+    .fade{
+        opacity: 1 !important;
+        z-index: 10 !important;
+    }
+    .mgn_5{
+        margin: 5px 0;
+    }
+    .item{
+        position: relative;
+    }
+    .item .tooltip{
+        display: inline-block;
+        width: 350px;
+        background: lightyellow;
+        border: 2px solid #eee;
+        border-radius: 5px;
+        position: absolute;
+        top:35px;
+        padding: 10px;
+        opacity: 0;
+        z-index: -1;
+        transition: all .5s;
+    }
+    .item .tooltip:before,
+    .item .tooltip:after{
+        position: absolute;
+        left: 20px;
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 10px 12px 10px;
+    }
+    .item .tooltip:before{
+        top: -12px;
+        border-color: transparent transparent #eee transparent;
+    }
+    .item .tooltip:after{
+        top: -9px;
+        border-color: transparent transparent lightyellow transparent;
+    }
+    </style>
+</head>
+<body>
+    <strong>Ract&nbsp;Vue&nbsp;リンク集</strong>
+    <div id="app">
+        <div class="item" v-for="list in linklist">
+            <a class="tooltip_trg" href="{{ list.url }}"
+                v-on:mouseover="list.isHover=true"
+                v-on:mouseout="list.isHover=false">
+                【{{ list.name }}】
+            </a>
+            <span class="u-pull-right" :style="{ color : get_color(list.type) }">
+                {{ list.date }}
+            </span>
+            <hr class="mgn_5">
+            <span class="tooltip" :class="{ fade: list.isHover }">
+                {{ list.title }}
+            </span>
+        </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./popup.js"></script>
+</body>
+</html>
